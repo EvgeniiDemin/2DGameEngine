@@ -6,8 +6,25 @@
 	objectVersion = 50;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		4499F71D2135CA2800D725C2 /* engine_pch.h in Headers */ = {isa = PBXBuildFile; fileRef = 4499F71B2135CA2800D725C2 /* engine_pch.h */; };
+		4499F71E2135CA2800D725C2 /* os.h in Headers */ = {isa = PBXBuildFile; fileRef = 4499F71C2135CA2800D725C2 /* os.h */; };
+		4499F7372135CE9400D725C2 /* GameApplication.m in Sources */ = {isa = PBXBuildFile; fileRef = 4499F7362135CE9400D725C2 /* GameApplication.m */; };
+		4499F73A2135D0DC00D725C2 /* GLView.h in Headers */ = {isa = PBXBuildFile; fileRef = 4499F7382135D0DC00D725C2 /* GLView.h */; };
+		4499F73B2135D0DC00D725C2 /* GLView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4499F7392135D0DC00D725C2 /* GLView.m */; };
+		4499F7402135D2F900D725C2 /* MainWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4499F73E2135D2F900D725C2 /* MainWindowController.m */; };
+		4499F7412135D2F900D725C2 /* MainWindowController.h in Headers */ = {isa = PBXBuildFile; fileRef = 4499F73F2135D2F900D725C2 /* MainWindowController.h */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
 		441AF1DE2135C69F00206977 /* libEngine.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libEngine.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		4499F71B2135CA2800D725C2 /* engine_pch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = engine_pch.h; sourceTree = "<group>"; };
+		4499F71C2135CA2800D725C2 /* os.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = os.h; sourceTree = "<group>"; };
+		4499F7362135CE9400D725C2 /* GameApplication.m */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 2; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = GameApplication.m; path = ../../../sources/Apple/BaseGame/MacOS/GameApplication.m; sourceTree = "<group>"; tabWidth = 2; usesTabs = 0; };
+		4499F7382135D0DC00D725C2 /* GLView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GLView.h; path = ../../../sources/Apple/BaseGame/MacOS/GLView.h; sourceTree = "<group>"; };
+		4499F7392135D0DC00D725C2 /* GLView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GLView.m; path = ../../../sources/Apple/BaseGame/MacOS/GLView.m; sourceTree = "<group>"; };
+		4499F73E2135D2F900D725C2 /* MainWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MainWindowController.m; path = ../../../sources/Apple/BaseGame/MacOS/MainWindowController.m; sourceTree = "<group>"; };
+		4499F73F2135D2F900D725C2 /* MainWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MainWindowController.h; path = ../../../sources/Apple/BaseGame/MacOS/MainWindowController.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -24,9 +41,14 @@
 		441AF1D52135C69F00206977 = {
 			isa = PBXGroup;
 			children = (
+				4499F7352135CE6100D725C2 /* BaseGame */,
+				4499F71A2135CA2800D725C2 /* include */,
 				441AF1DF2135C69F00206977 /* Products */,
 			);
+			indentWidth = 2;
 			sourceTree = "<group>";
+			tabWidth = 2;
+			usesTabs = 0;
 		};
 		441AF1DF2135C69F00206977 /* Products */ = {
 			isa = PBXGroup;
@@ -36,6 +58,28 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		4499F71A2135CA2800D725C2 /* include */ = {
+			isa = PBXGroup;
+			children = (
+				4499F71B2135CA2800D725C2 /* engine_pch.h */,
+				4499F71C2135CA2800D725C2 /* os.h */,
+			);
+			name = include;
+			path = ../../../include;
+			sourceTree = "<group>";
+		};
+		4499F7352135CE6100D725C2 /* BaseGame */ = {
+			isa = PBXGroup;
+			children = (
+				4499F73F2135D2F900D725C2 /* MainWindowController.h */,
+				4499F73E2135D2F900D725C2 /* MainWindowController.m */,
+				4499F7382135D0DC00D725C2 /* GLView.h */,
+				4499F7392135D0DC00D725C2 /* GLView.m */,
+				4499F7362135CE9400D725C2 /* GameApplication.m */,
+			);
+			name = BaseGame;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -43,6 +87,10 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4499F71E2135CA2800D725C2 /* os.h in Headers */,
+				4499F7412135D2F900D725C2 /* MainWindowController.h in Headers */,
+				4499F73A2135D0DC00D725C2 /* GLView.h in Headers */,
+				4499F71D2135CA2800D725C2 /* engine_pch.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -102,6 +150,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4499F7402135D2F900D725C2 /* MainWindowController.m in Sources */,
+				4499F7372135CE9400D725C2 /* GameApplication.m in Sources */,
+				4499F73B2135D0DC00D725C2 /* GLView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
