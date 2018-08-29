@@ -8,7 +8,6 @@
 #define OS_LINUX    0
 #define OS_WINDOWS  0
 
-
 #if defined(__APPLE__)
 # include <TargetConditionals.h>
 # if TARGET_OS_MAC == 1

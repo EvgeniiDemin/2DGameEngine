@@ -14,6 +14,15 @@
 		4499F73B2135D0DC00D725C2 /* GLView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4499F7392135D0DC00D725C2 /* GLView.m */; };
 		4499F7402135D2F900D725C2 /* MainWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4499F73E2135D2F900D725C2 /* MainWindowController.m */; };
 		4499F7412135D2F900D725C2 /* MainWindowController.h in Headers */ = {isa = PBXBuildFile; fileRef = 4499F73F2135D2F900D725C2 /* MainWindowController.h */; };
+		4499F74A213726C300D725C2 /* desktop_input.h in Headers */ = {isa = PBXBuildFile; fileRef = 4499F747213726C200D725C2 /* desktop_input.h */; };
+		4499F74B213726C300D725C2 /* touch_input.h in Headers */ = {isa = PBXBuildFile; fileRef = 4499F748213726C200D725C2 /* touch_input.h */; };
+		4499F74C213726C300D725C2 /* lifecycle.h in Headers */ = {isa = PBXBuildFile; fileRef = 4499F749213726C200D725C2 /* lifecycle.h */; };
+		4499F75221372B9800D725C2 /* desktop_input.cpp in Headers */ = {isa = PBXBuildFile; fileRef = 4499F74F21372B9800D725C2 /* desktop_input.cpp */; };
+		4499F75321372B9800D725C2 /* touch_input.cpp in Headers */ = {isa = PBXBuildFile; fileRef = 4499F75021372B9800D725C2 /* touch_input.cpp */; };
+		4499F75421372B9800D725C2 /* lifecycle.cpp in Headers */ = {isa = PBXBuildFile; fileRef = 4499F75121372B9800D725C2 /* lifecycle.cpp */; };
+		4499F75521372C6300D725C2 /* desktop_input.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4499F74F21372B9800D725C2 /* desktop_input.cpp */; };
+		4499F75621372C6300D725C2 /* touch_input.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4499F75021372B9800D725C2 /* touch_input.cpp */; };
+		4499F75721372C6300D725C2 /* lifecycle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4499F75121372B9800D725C2 /* lifecycle.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +34,12 @@
 		4499F7392135D0DC00D725C2 /* GLView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GLView.m; path = ../../../sources/Apple/BaseGame/MacOS/GLView.m; sourceTree = "<group>"; };
 		4499F73E2135D2F900D725C2 /* MainWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MainWindowController.m; path = ../../../sources/Apple/BaseGame/MacOS/MainWindowController.m; sourceTree = "<group>"; };
 		4499F73F2135D2F900D725C2 /* MainWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MainWindowController.h; path = ../../../sources/Apple/BaseGame/MacOS/MainWindowController.h; sourceTree = "<group>"; };
+		4499F747213726C200D725C2 /* desktop_input.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = desktop_input.h; sourceTree = "<group>"; };
+		4499F748213726C200D725C2 /* touch_input.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = touch_input.h; sourceTree = "<group>"; };
+		4499F749213726C200D725C2 /* lifecycle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lifecycle.h; sourceTree = "<group>"; };
+		4499F74F21372B9800D725C2 /* desktop_input.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = desktop_input.cpp; sourceTree = "<group>"; };
+		4499F75021372B9800D725C2 /* touch_input.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = touch_input.cpp; sourceTree = "<group>"; };
+		4499F75121372B9800D725C2 /* lifecycle.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = lifecycle.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,6 +58,7 @@
 			children = (
 				4499F7352135CE6100D725C2 /* BaseGame */,
 				4499F71A2135CA2800D725C2 /* include */,
+				4499F74D21372B6400D725C2 /* sources */,
 				441AF1DF2135C69F00206977 /* Products */,
 			);
 			indentWidth = 2;
@@ -61,6 +77,7 @@
 		4499F71A2135CA2800D725C2 /* include */ = {
 			isa = PBXGroup;
 			children = (
+				4499F746213726C200D725C2 /* portability */,
 				4499F71B2135CA2800D725C2 /* engine_pch.h */,
 				4499F71C2135CA2800D725C2 /* os.h */,
 			);
@@ -80,6 +97,35 @@
 			name = BaseGame;
 			sourceTree = "<group>";
 		};
+		4499F746213726C200D725C2 /* portability */ = {
+			isa = PBXGroup;
+			children = (
+				4499F747213726C200D725C2 /* desktop_input.h */,
+				4499F748213726C200D725C2 /* touch_input.h */,
+				4499F749213726C200D725C2 /* lifecycle.h */,
+			);
+			path = portability;
+			sourceTree = "<group>";
+		};
+		4499F74D21372B6400D725C2 /* sources */ = {
+			isa = PBXGroup;
+			children = (
+				4499F74E21372B9800D725C2 /* portability */,
+			);
+			name = sources;
+			sourceTree = "<group>";
+		};
+		4499F74E21372B9800D725C2 /* portability */ = {
+			isa = PBXGroup;
+			children = (
+				4499F74F21372B9800D725C2 /* desktop_input.cpp */,
+				4499F75021372B9800D725C2 /* touch_input.cpp */,
+				4499F75121372B9800D725C2 /* lifecycle.cpp */,
+			);
+			name = portability;
+			path = ../../../sources/portability;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -87,10 +133,16 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4499F74C213726C300D725C2 /* lifecycle.h in Headers */,
+				4499F75421372B9800D725C2 /* lifecycle.cpp in Headers */,
 				4499F71E2135CA2800D725C2 /* os.h in Headers */,
+				4499F75321372B9800D725C2 /* touch_input.cpp in Headers */,
+				4499F74A213726C300D725C2 /* desktop_input.h in Headers */,
 				4499F7412135D2F900D725C2 /* MainWindowController.h in Headers */,
 				4499F73A2135D0DC00D725C2 /* GLView.h in Headers */,
 				4499F71D2135CA2800D725C2 /* engine_pch.h in Headers */,
+				4499F75221372B9800D725C2 /* desktop_input.cpp in Headers */,
+				4499F74B213726C300D725C2 /* touch_input.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -150,6 +202,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4499F75521372C6300D725C2 /* desktop_input.cpp in Sources */,
+				4499F75621372C6300D725C2 /* touch_input.cpp in Sources */,
+				4499F75721372C6300D725C2 /* lifecycle.cpp in Sources */,
 				4499F7402135D2F900D725C2 /* MainWindowController.m in Sources */,
 				4499F7372135CE9400D725C2 /* GameApplication.m in Sources */,
 				4499F73B2135D0DC00D725C2 /* GLView.m in Sources */,
@@ -273,6 +328,7 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				EXECUTABLE_PREFIX = lib;
+				HEADER_SEARCH_PATHS = "$(SRCROOT)/../../../include";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 			};
@@ -283,6 +339,7 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				EXECUTABLE_PREFIX = lib;
+				HEADER_SEARCH_PATHS = "$(SRCROOT)/../../../include";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 			};
