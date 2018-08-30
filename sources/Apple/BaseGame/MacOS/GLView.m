@@ -2,6 +2,7 @@
 #import <Carbon/Carbon.h>
 
 #include "portability/lifecycle.h"
+#include "portability/desktop_input.h"
 
 #define SUPPORT_RETINA_RESOLUTION 1
 
@@ -236,6 +237,107 @@ enum PengingAction {
   }
 
   Update();
+}
+
+- (void)mouseDown:(NSEvent *)theEvent
+{
+  [self handleMouseEvent:theEvent withHandler:OnMouseDown];
+}
+
+- (void)mouseUp:(NSEvent *)theEvent
+{
+  [self handleMouseEvent:theEvent withHandler:OnMouseUp];
+}
+
+- (void)mouseDragged:(NSEvent *)theEvent
+{
+  [self handleMouseEvent:theEvent withHandler:OnMouseMove];
+}
+
+- (void)mouseMoved:(NSEvent *)theEvent
+{
+  [self handleMouseEvent:theEvent withHandler:OnMouseMove];
+}
+
+- (void)handleMouseEvent:(NSEvent*)theEvent
+             withHandler:(void(*)(int, int, int)) handler
+{
+  CGLLockContext([[self openGLContext] CGLContextObj]);
+  [[self openGLContext] makeCurrentContext];
+
+  NSRect viewRectPoints = [self bounds];
+  NSPoint pos = [self convertPoint:[theEvent locationInWindow] fromView:nil];
+#if SUPPORT_RETINA_RESOLUTION
+  viewRectPoints = [self convertRectToBacking:viewRectPoints];
+  pos = [self convertPointToBacking:pos];
+#endif  // SUPPORT_RETINA_RESOLUTION
+  handler(pos.x, viewRectPoints.size.height - pos.y, (int)[theEvent buttonNumber]);
+
+  CGLUnlockContext([[self openGLContext] CGLContextObj]);
+}
+
+unichar getKeyCode(NSEvent* event)
+{
+  unichar c = [[event charactersIgnoringModifiers] characterAtIndex:0];
+
+  switch (c) {
+    case NSUpArrowFunctionKey:
+      return kUpArrowCharCode;
+    case NSDownArrowFunctionKey:
+      return kDownArrowCharCode;
+    case NSLeftArrowFunctionKey:
+      return kLeftArrowCharCode;
+    case NSRightArrowFunctionKey:
+      return kRightArrowCharCode;
+    case NSHomeFunctionKey:
+      return kHomeCharCode;
+    case NSEndFunctionKey:
+      return kEndCharCode;
+    case NSDeleteFunctionKey:
+      return kDeleteCharCode;
+    case NSDeleteCharacter:
+      return kBackspaceCharCode;
+    case NSF1FunctionKey:
+      return kVK_F1;
+    case NSF2FunctionKey:
+      return kVK_F2;
+    case NSF3FunctionKey:
+      return kVK_F3;
+    case NSF4FunctionKey:
+      return kVK_F4;
+    case NSF5FunctionKey:
+      return kVK_F5;
+    case NSF6FunctionKey:
+      return kVK_F6;
+    case NSF7FunctionKey:
+      return kVK_F7;
+    case NSF8FunctionKey:
+      return kVK_F8;
+    case NSF9FunctionKey:
+      return kVK_F9;
+    case NSF10FunctionKey:
+      return kVK_F10;
+    case NSF11FunctionKey:
+      return kVK_F11;
+    case NSF12FunctionKey:
+      return kVK_F12;
+    default:
+      break;
+  }
+
+  return c;
+}
+
+- (void) keyDown:(NSEvent *)theEvent
+{
+  OnKeyDown(getKeyCode(theEvent));
+}
+
+- (void) keyUp:(NSEvent *)theEvent
+{
+  unichar c = getKeyCode(theEvent);
+  OnKeyUp(c);
+  OnCharPressed(c);
 }
 
 - (void) onApplicationTerminate
