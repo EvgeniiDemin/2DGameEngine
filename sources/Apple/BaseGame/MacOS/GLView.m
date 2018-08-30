@@ -1,10 +1,19 @@
 #import "GLView.h"
 #import <Carbon/Carbon.h>
 
+#include "portability/lifecycle.h"
+
 #define SUPPORT_RETINA_RESOLUTION 1
+
+enum PengingAction {
+  PA_None,
+  PA_Pause,
+  PA_Unpause,
+};
 
 @interface GLView() {
   bool canResize;
+  enum PengingAction pendingAction;
 }
 
 @property (nonatomic, retain) NSTrackingArea* trackingArea;
@@ -18,7 +27,8 @@
 - (id)init
 {
   if( self = [super init]) {
-    canResize  = false;
+    canResize     = false;
+    pendingAction = PA_None;
   }
   return self;
 }
@@ -30,9 +40,12 @@
 
 - (void) createTrackingArea
 {
-  int opts = (NSTrackingMouseMoved | NSTrackingActiveAlways | NSTrackingCursorUpdate | NSTrackingMouseEnteredAndExited);
+  int options = (NSTrackingMouseMoved   |
+                 NSTrackingActiveAlways |
+                 NSTrackingCursorUpdate |
+                 NSTrackingMouseEnteredAndExited);
   trackingArea = [[NSTrackingArea alloc] initWithRect:[self bounds]
-                                              options:opts
+                                              options:options
                                                 owner:self
                                             userInfo:nil];
   [self addTrackingArea:trackingArea];
@@ -108,18 +121,22 @@
 
 - (void) windowWillMiniaturize:(NSNotification*)notification
 {
+  pendingAction = PA_Pause;
 }
 
 - (void) windowDidDeminiaturize:(NSNotification*)notification
 {
+  pendingAction = PA_Unpause;
 }
 
 - (void) windowDidResignMain:(NSNotification*)notification
 {
+  pendingAction = PA_Pause;
 }
 
 - (void) windowDidBecomeMain:(NSNotification*)notification
 {
+  pendingAction = PA_Unpause;
 }
 
 - (void) initGL
@@ -176,6 +193,8 @@
   // Points:Pixels is always 1:1 when not supporting retina resolutions
   NSRect viewRectPixels = viewRectPoints;
 #endif // !SUPPORT_RETINA_RESOLUTION
+
+  ResizeScreen(viewRectPixels.size.width, viewRectPixels.size.height);
   CGLUnlockContext([[self openGLContext] CGLContextObj]);
 }
 
@@ -189,15 +208,34 @@
 - (void) drawView
 {
   [[self openGLContext] makeCurrentContext];
-  
+
   // We draw on a secondary thread through the display link
   // When resizing the view, -reshape is called automatically on the main
   // thread. Add a mutex around to avoid the threads accessing the context
   // simultaneously when resizing
   CGLLockContext([[self openGLContext] CGLContextObj]);
 
+  [self onUpdate];
+
   CGLFlushDrawable([[self openGLContext] CGLContextObj]);
   CGLUnlockContext([[self openGLContext] CGLContextObj]);
+}
+
+- (void) onUpdate
+{
+  if(pendingAction == PA_Pause) {
+    Pause(true);
+    pendingAction = PA_None;
+    return;
+  }
+
+  if(pendingAction == PA_Unpause) {
+    Pause(false);
+    pendingAction = PA_None;
+    return;
+  }
+
+  Update();
 }
 
 - (void) onApplicationTerminate

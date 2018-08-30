@@ -1,6 +1,7 @@
 #import "MainWindowController.h"
-
 #import "GLView.h"
+
+#include "portability/lifecycle.h"
 
 void ShowAlert(NSString* title, NSString* message)
 {
@@ -44,12 +45,14 @@ void ShowAlert(NSString* title, NSString* message)
 
 -(void)applicationWillFinishLaunching:(NSNotification *)notification
 {
+  Startup();
   [self startUpdates];
   [[self window] toggleFullScreen:@""];
 }
 
 - (void)applicationWillTerminate:(NSNotification *)notification
 {
+  Shutdown();
   [self stopUpdates];
   [self.glView onApplicationTerminate];
   [[NSNotificationCenter defaultCenter] removeObserver:self];

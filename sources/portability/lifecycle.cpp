@@ -4,7 +4,7 @@
 void Startup() {
 }
 
-void Shutdow() {
+void Shutdown() {
 }
 
 void Update() {

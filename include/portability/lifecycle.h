@@ -5,16 +5,16 @@
 extern "C" {
 #endif  // __cplusplus
 
-void Startup();
-void Shutdow();
-void Update();
+void Startup(void);
+void Shutdown(void);
+void Update(void);
 
 void Pause(bool pause);
 void ResizeScreen(int width, int height);
 
-void OnLowMemory();
-void OnDeactivate();
-void OnReactivate();
+void OnLowMemory(void);
+void OnDeactivate(void);
+void OnReactivate(void);
 
 #ifdef  __cplusplus
 }
