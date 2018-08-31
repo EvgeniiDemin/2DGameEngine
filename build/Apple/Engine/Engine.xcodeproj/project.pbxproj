@@ -40,6 +40,8 @@
 		4499F74F21372B9800D725C2 /* desktop_input.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = desktop_input.cpp; sourceTree = "<group>"; };
 		4499F75021372B9800D725C2 /* touch_input.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = touch_input.cpp; sourceTree = "<group>"; };
 		4499F75121372B9800D725C2 /* lifecycle.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = lifecycle.cpp; sourceTree = "<group>"; };
+		4499F7582139D4DA00D725C2 /* application_delegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = application_delegate.h; sourceTree = "<group>"; };
+		4499F7592139D98E00D725C2 /* launcher.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = launcher.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +82,7 @@
 				4499F746213726C200D725C2 /* portability */,
 				4499F71B2135CA2800D725C2 /* engine_pch.h */,
 				4499F71C2135CA2800D725C2 /* os.h */,
+				4499F7582139D4DA00D725C2 /* application_delegate.h */,
 			);
 			name = include;
 			path = ../../../include;
@@ -103,6 +106,7 @@
 				4499F747213726C200D725C2 /* desktop_input.h */,
 				4499F748213726C200D725C2 /* touch_input.h */,
 				4499F749213726C200D725C2 /* lifecycle.h */,
+				4499F7592139D98E00D725C2 /* launcher.h */,
 			);
 			path = portability;
 			sourceTree = "<group>";

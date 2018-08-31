@@ -1,6 +1,8 @@
 #import <AppKit/AppKit.h>
 #import "MainWindowController.h"
 
+#include "portability/launcher.h"
+
 #define NON_LOCALIZED @"_non_localized_"
 
 NSString* getLocalizedString(NSString* key)
@@ -70,7 +72,7 @@ NSMenu* createMainMenu()
   return mainMenu;
 }
 
-int RunGameApplication(int argc, const char* argv[]) {
+int RunApplication(int argc, const char* argv[]) {
   NSApplication* application = [NSApplication sharedApplication];
   NSWindow* mainWindow = createApplicationWindow();
 
