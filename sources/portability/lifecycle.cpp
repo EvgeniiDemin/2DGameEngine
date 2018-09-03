@@ -1,13 +1,18 @@
 #include "engine_pch.h"
 #include "portability/lifecycle.h"
 
+#include "core/engine.h"
+
 void Startup() {
+  g_engine.Startup();
 }
 
 void Shutdown() {
+  g_engine.Shutdown();
 }
 
 void Update() {
+  g_engine.Update();
 }
 
 void Pause(bool pause) {

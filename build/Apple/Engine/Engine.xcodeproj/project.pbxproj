@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		441AB91E213DBDAC00ADCEB7 /* engine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 441AB91D213DBDAC00ADCEB7 /* engine.cpp */; };
 		4499F71D2135CA2800D725C2 /* engine_pch.h in Headers */ = {isa = PBXBuildFile; fileRef = 4499F71B2135CA2800D725C2 /* engine_pch.h */; };
 		4499F71E2135CA2800D725C2 /* os.h in Headers */ = {isa = PBXBuildFile; fileRef = 4499F71C2135CA2800D725C2 /* os.h */; };
 		4499F7372135CE9400D725C2 /* GameApplication.m in Sources */ = {isa = PBXBuildFile; fileRef = 4499F7362135CE9400D725C2 /* GameApplication.m */; };
@@ -26,6 +27,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		44139349213DB38400F18DCB /* engine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = engine.h; sourceTree = "<group>"; };
+		441AB91D213DBDAC00ADCEB7 /* engine.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = engine.cpp; sourceTree = "<group>"; };
 		441AF1DE2135C69F00206977 /* libEngine.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libEngine.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		4499F71B2135CA2800D725C2 /* engine_pch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = engine_pch.h; sourceTree = "<group>"; };
 		4499F71C2135CA2800D725C2 /* os.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = os.h; sourceTree = "<group>"; };
@@ -55,6 +58,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		44139348213DB36700F18DCB /* core */ = {
+			isa = PBXGroup;
+			children = (
+				4499F7582139D4DA00D725C2 /* application_delegate.h */,
+				44139349213DB38400F18DCB /* engine.h */,
+			);
+			path = core;
+			sourceTree = "<group>";
+		};
+		441AB91C213DBDAC00ADCEB7 /* core */ = {
+			isa = PBXGroup;
+			children = (
+				441AB91D213DBDAC00ADCEB7 /* engine.cpp */,
+			);
+			name = core;
+			path = ../../../sources/core;
+			sourceTree = "<group>";
+		};
 		441AF1D52135C69F00206977 = {
 			isa = PBXGroup;
 			children = (
@@ -79,10 +100,10 @@
 		4499F71A2135CA2800D725C2 /* include */ = {
 			isa = PBXGroup;
 			children = (
+				44139348213DB36700F18DCB /* core */,
 				4499F746213726C200D725C2 /* portability */,
 				4499F71B2135CA2800D725C2 /* engine_pch.h */,
 				4499F71C2135CA2800D725C2 /* os.h */,
-				4499F7582139D4DA00D725C2 /* application_delegate.h */,
 			);
 			name = include;
 			path = ../../../include;
@@ -114,6 +135,7 @@
 		4499F74D21372B6400D725C2 /* sources */ = {
 			isa = PBXGroup;
 			children = (
+				441AB91C213DBDAC00ADCEB7 /* core */,
 				4499F74E21372B9800D725C2 /* portability */,
 			);
 			name = sources;
@@ -208,6 +230,7 @@
 			files = (
 				4499F75521372C6300D725C2 /* desktop_input.cpp in Sources */,
 				4499F75621372C6300D725C2 /* touch_input.cpp in Sources */,
+				441AB91E213DBDAC00ADCEB7 /* engine.cpp in Sources */,
 				4499F75721372C6300D725C2 /* lifecycle.cpp in Sources */,
 				4499F7402135D2F900D725C2 /* MainWindowController.m in Sources */,
 				4499F7372135CE9400D725C2 /* GameApplication.m in Sources */,
